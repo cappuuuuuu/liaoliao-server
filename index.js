@@ -14,10 +14,7 @@ require('./config/db.js')
 
 const port = process.env.PORT || 5000
 const corsOptions = {
-  origin: [
-    'https://liaoliao-admin.netlify.app/',
-    'http://localhost:8080'
-  ]
+  origin: process.env.CORS_ORIGIN
 }
 
 app.use(cors(corsOptions))
