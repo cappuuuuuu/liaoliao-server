@@ -1,5 +1,6 @@
 const cors = require('cors')
 const express = require('express')
+const path = require('path')
 const app = express()
 const http = require('http').createServer(app)
 const io = require('socket.io')(http)
@@ -16,6 +17,8 @@ const port = process.env.PORT || 5000
 const corsOptions = {
   origin: process.env.CORS_ORIGIN
 }
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'views'))
 
 app.use(cors(corsOptions))
 app.use(express.json())
@@ -28,21 +31,8 @@ app.use('/admin', adminRoutes)
 app.use('/test', testRoutes)
 app.use('/data', dataRoutes)
 
-app.use((_req, _res, next) => {
-  const error = new Error('Page Is Not Found')
-  error.status = 404
-
-  next(error)
-})
-
-app.use((error, _req, res, _next) => {
-  res.status(error.status || 500)
-
-  res.json({
-    error: {
-      message: error.message
-    }
-  })
+app.use((_req, res) => {
+  res.render('404', { title: '404 Error Page', message: 'Page is not found!' })
 })
 
 io.on('connection', socket => socketHandler(io, socket))
