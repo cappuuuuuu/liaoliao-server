@@ -38,7 +38,7 @@ app.use('/stickers', stickersRoutes)
 app.use('/login', loginRoutes)
 
 app.use((_req, res) => {
-  res.render('404', { title: '404 Error Page', message: 'Page is not found!' })
+  res.status('404').render('404', { title: '404 Error Page', message: 'Page is not found!' })
 })
 
 io.on('connection', socket => socketHandler(io, socket))
