@@ -10,9 +10,9 @@ const socketHandler = require('./controllers/socketHandler')
 const avatarsRoutes = require('./routes/avatars')
 const stickersRoutes = require('./routes/stickers')
 const loginRoutes = require('./routes/login')
+const port = process.env.PORT || 49936
 require('./config/db.js')
 
-const port = process.env.PORT || 5000
 // set views
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
