@@ -9,8 +9,6 @@ const socketHandler = require('./controllers/socketHandler')
 const avatarsRoutes = require('./routes/avatars')
 const stickersRoutes = require('./routes/stickers')
 const adminRoutes = require('./routes/admin')
-const testRoutes = require('./routes/test')
-const dataRoutes = require('./routes/data')
 require('./config/db.js')
 
 const port = process.env.PORT || 5000
@@ -28,8 +26,6 @@ app.use(morgan('dev'))
 app.use('/avatars', avatarsRoutes)
 app.use('/stickers', stickersRoutes)
 app.use('/admin', adminRoutes)
-app.use('/test', testRoutes)
-app.use('/data', dataRoutes)
 
 app.use((_req, res) => {
   res.render('404', { title: '404 Error Page', message: 'Page is not found!' })
