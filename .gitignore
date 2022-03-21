@@ -3,4 +3,10 @@ build/
 .DS_Store
 package-lock.json
 
+# Environment Variable
 .env
+
+# localhost use SSL
+cert.pem
+key.pem
+keytmp.pem
