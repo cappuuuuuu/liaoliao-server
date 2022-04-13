@@ -7,9 +7,8 @@ const io = require('socket.io')(http)
 const cookieParser = require('cookie-parser')
 const morgan = require('morgan')
 const socketHandler = require('./controllers/socketHandler')
-const avatarsRoutes = require('./routes/avatars')
-const stickersRoutes = require('./routes/stickers')
-const loginRoutes = require('./routes/login')
+const memberRoutes = require('./routes/member')
+const adminRoutes = require('./routes/admin')
 const port = process.env.PORT || 49936
 require('./config/db.js')
 
@@ -33,9 +32,8 @@ app.use(express.urlencoded({ extended: false }))
 app.use(morgan('dev'))
 
 // Route
-app.use('/avatars', avatarsRoutes)
-app.use('/stickers', stickersRoutes)
-app.use('/login', loginRoutes)
+app.use('/member', memberRoutes)
+app.use('/admin', adminRoutes)
 
 app.use((_req, res) => {
   res.status('404').render('404', { title: '404 Error Page', message: 'Page is not found!' })
