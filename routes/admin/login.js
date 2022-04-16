@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const AdminAuthModel = require('../../models/adminAuth')
+const AdminAuthModel = require('@root/models/adminAuth')
 
 router.post('/login', async (req, res) => {
   const admin = await AdminAuthModel.findOne({ account: req.body.account })

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const AvatarsModel = require('../../models/avatars')
+const AvatarsModel = require('@root/models/avatars')
 
 router.get('/avatars', async (req, res, next) => {
   const avatars = await AvatarsModel.find()
