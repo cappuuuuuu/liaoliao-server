@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const AvatarsModel = require('@root/models/avatars')
+const AvatarModel = require('@root/models/avatar')
 
-router.get('/avatars', async (req, res, next) => {
-  const avatars = await AvatarsModel.find()
-  res.send(avatars)
+router.get('/avatar', async (req, res, next) => {
+  const avatar = await AvatarModel.find()
+  res.send(avatar)
 })
 
 module.exports = router

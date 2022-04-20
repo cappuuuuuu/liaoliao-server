@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const adminAuthSchema = new Schema({
+const operatorSchema = new Schema({
   account: {
     type: String,
     required: true
@@ -10,6 +10,6 @@ const adminAuthSchema = new Schema({
     type: String,
     required: true
   }
-}, { collection: 'admin.auth' })
+}, { collection: 'operator' })
 
-module.exports = mongoose.model('AdminAuth', adminAuthSchema)
+module.exports = mongoose.model('operator', operatorSchema)

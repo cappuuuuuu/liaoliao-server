@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const avatarsSchema = new Schema({
+const avatarSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -12,4 +12,4 @@ const avatarsSchema = new Schema({
   }
 })
 
-module.exports = mongoose.model('Avatars', avatarsSchema)
+module.exports = mongoose.model('Avatar', avatarSchema)

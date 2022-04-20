@@ -1,7 +1,7 @@
-const avatarsRoutes = require('./avatars')
-const stickersRoutes = require('./stickers')
+const avatarRoutes = require('./avatar')
+const stickerRoutes = require('./sticker')
 
 module.exports = [
-  avatarsRoutes,
-  stickersRoutes
+  avatarRoutes,
+  stickerRoutes
 ]

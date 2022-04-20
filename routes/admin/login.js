@@ -1,10 +1,10 @@
 const router = require('express').Router()
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const AdminAuthModel = require('@root/models/adminAuth')
+const operatorModel = require('@root/models/operator')
 
 router.post('/login', async (req, res) => {
-  const admin = await AdminAuthModel.findOne({ account: req.body.account })
+  const admin = await operatorModel.findOne({ account: req.body.account })
   if (!admin) {
     return res
       .status(400)

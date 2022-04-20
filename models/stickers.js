@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const avatarsSchema = new Schema({
+const stickerSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -12,4 +12,4 @@ const avatarsSchema = new Schema({
   }
 })
 
-module.exports = mongoose.model('Stickers', avatarsSchema)
+module.exports = mongoose.model('Stickers', stickerSchema)
