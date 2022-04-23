@@ -1,7 +1,7 @@
 const loginRoute = require('./login')
-const accountRoute = require('./account')
+const operatorRoute = require('./operator')
 
 module.exports = [
   loginRoute,
-  accountRoute
+  operatorRoute
 ]
