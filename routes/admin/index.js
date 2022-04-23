@@ -1,5 +1,7 @@
-const loginRoutes = require('./login')
+const loginRoute = require('./login')
+const accountRoute = require('./account')
 
 module.exports = [
-  loginRoutes
+  loginRoute,
+  accountRoute
 ]

@@ -1,4 +1,4 @@
-const { saveMessage, getMessage } = require('./messagesRecords')
+const { saveMessage, getMessage } = require('./messageRecords')
 const { removeUser, addUser, checkUsers } = require('./usersHandler')
 
 function socketHandler (io, socket) {

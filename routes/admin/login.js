@@ -4,14 +4,14 @@ const jwt = require('jsonwebtoken')
 const operatorModel = require('@models/operator')
 
 router.post('/login', async (req, res) => {
-  const admin = await operatorModel.findOne({ account: req.body.account })
-  if (!admin) {
+  const operator = await operatorModel.findOne({ account: req.body.account })
+  if (!operator) {
     return res
       .status(400)
       .json({ message: 'Account is not found' })
   }
 
-  const isValidPassword = await bcrypt.compare(req.body.password, admin.password)
+  const isValidPassword = await bcrypt.compare(req.body.password, operator.password)
   if (!isValidPassword) {
     return res
       .status(401)
@@ -19,8 +19,8 @@ router.post('/login', async (req, res) => {
   }
 
   const payload = {
-    _id: admin._id,
-    account: admin.account
+    _id: operator._id,
+    account: operator.account
   }
 
   const token = jwt.sign({ payload }, process.env.TOKEN_SECRET, { expiresIn: '1h' })
