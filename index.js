@@ -1,4 +1,4 @@
-require('./config/alias')
+require('module-alias/register')
 const cors = require('cors')
 const express = require('express')
 const path = require('path')
