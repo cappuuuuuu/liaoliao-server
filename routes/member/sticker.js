@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const StickerModel = require('@root/models/sticker')
+const StickerModel = require('@models/sticker')
 
 router.get('/sticker', async (req, res) => {
   const sticker = await StickerModel.find()

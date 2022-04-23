@@ -1,4 +1,4 @@
-const MessagesModel = require('@root/models/messages')
+const MessagesModel = require('@models/messages')
 
 const saveMessage = (obj) => {
   const message = new MessagesModel(obj)
