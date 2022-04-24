@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const messagesSchema = new Schema({
+const messageSchema = new Schema({
   typesOf: {
     type: String,
     required: true
@@ -22,7 +22,6 @@ const messagesSchema = new Schema({
     type: Object,
     required: true
   }
-
 })
 
-module.exports = mongoose.model('Messages', messagesSchema)
+module.exports = mongoose.model('Message', messageSchema)

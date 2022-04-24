@@ -10,7 +10,8 @@ module.exports = function (req, res, next) {
   }
 
   try {
-    jwt.verify(token, process.env.TOKEN_SECRET)
+    const decoded = jwt.verify(token, process.env.TOKEN_SECRET)
+    req._id = decoded.payload._id
     next()
   } catch (err) {
     res

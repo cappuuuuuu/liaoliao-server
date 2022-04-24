@@ -7,9 +7,9 @@ const http = require('http').createServer(app)
 const io = require('socket.io')(http)
 const cookieParser = require('cookie-parser')
 const morgan = require('morgan')
-const socketHandler = require('@root/controllers/socketHandler')
-const memberRoutes = require('@root/routes/member')
-const adminRoutes = require('@root/routes/admin')
+const socketHandler = require('@controllers/socketHandler')
+const memberRoutes = require('@routes/member')
+const adminRoutes = require('@routes/admin')
 const port = process.env.PORT || 49936
 require('./config/db.js')
 

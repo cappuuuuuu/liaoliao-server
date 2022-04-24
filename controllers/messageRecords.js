@@ -1,12 +1,12 @@
-const MessagesModel = require('@root/models/messages')
+const MessageModel = require('@models/message')
 
 const saveMessage = (obj) => {
-  const message = new MessagesModel(obj)
+  const message = new MessageModel(obj)
   message.save()
 }
 
 const getMessage = () => {
-  return MessagesModel.find()
+  return MessageModel.find()
 }
 
 module.exports = { saveMessage, getMessage }

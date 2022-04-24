@@ -35,6 +35,12 @@
     "eslint-plugin-promise": "^5.1.0"
   },
   "_moduleAliases": {
-    "@root": "."
+    "@root": ".",
+    "@config": "./config",
+    "@controllers": "./controllers",
+    "@middleware": "./middleware",
+    "@models": "./models",
+    "@routes": "./routes",
+    "@views": "./views"
   }
 }
