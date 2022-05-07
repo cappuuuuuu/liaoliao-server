@@ -25,7 +25,7 @@ router.post('/login', async (req, res) => {
 
   const token = jwt.sign({ payload }, process.env.TOKEN_SECRET, { expiresIn: '1h' })
   return res
-    .cookie('access_token', token)
+    .cookie('access_token', token, { sameSite: 'none', secure: true })
     .json({ ...payload, token })
 })
 
