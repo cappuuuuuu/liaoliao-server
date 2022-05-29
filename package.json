@@ -41,6 +41,7 @@
     "@middleware": "./middleware",
     "@models": "./models",
     "@routes": "./routes",
-    "@views": "./views"
+    "@views": "./views",
+    "@static": "./static"
   }
 }
