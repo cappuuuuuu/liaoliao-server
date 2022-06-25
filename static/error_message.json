@@ -1,0 +1,7 @@
+{
+  "ACCESS_DENIED": "Access Denied",
+  "INVALID_PASSWORD": "Invalid password",
+  "ACCOUNT_NOT_FOUND": "Account is not found",
+  "UNKNOWN_ERROR": "Unknown error",
+  "LOGOUT_SUCCESS": "Logout success"
+}

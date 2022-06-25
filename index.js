@@ -8,6 +8,7 @@ const io = require('socket.io')(http)
 const cookieParser = require('cookie-parser')
 const morgan = require('morgan')
 const socketHandler = require('@controllers/socketHandler')
+const commonRoutes = require('@routes/common')
 const memberRoutes = require('@routes/member')
 const adminRoutes = require('@routes/admin')
 const port = process.env.PORT || 49936
@@ -33,6 +34,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(morgan('dev'))
 
 // Route
+app.use('/', commonRoutes)
 app.use('/member', memberRoutes)
 app.use('/admin', adminRoutes)
 
