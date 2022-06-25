@@ -22,6 +22,6 @@ const messageSchema = new Schema({
     type: Object,
     required: true
   }
-})
+}, { collection: 'message' })
 
-module.exports = mongoose.model('Message', messageSchema)
+module.exports = mongoose.model('message', messageSchema)
