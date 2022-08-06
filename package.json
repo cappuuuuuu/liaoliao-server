@@ -42,6 +42,7 @@
     "@models": "./models",
     "@routes": "./routes",
     "@views": "./views",
-    "@static": "./static"
+    "@static": "./static",
+    "@utils": "./utils"
   }
 }

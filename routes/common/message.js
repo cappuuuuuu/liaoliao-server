@@ -3,6 +3,7 @@ const router = express.Router()
 const authToken = require('@middleware/authToken')
 const MessageModel = require('@models/message')
 const errorMessage = require('@static/error_message')
+const response = require('@utils/response')
 
 router.get('/message', authToken, async (req, res) => {
   let { page, count } = req.query
@@ -13,10 +14,10 @@ router.get('/message', authToken, async (req, res) => {
   const sliceIndex = (page - 1) * count
   const singlePageMessage = allMessage.slice(sliceIndex, sliceIndex + count)
   const payload = {
-    data: singlePageMessage,
+    records: singlePageMessage,
     count: allMessage.length
   }
-  return res.json(payload)
+  return res.json(response.success({ data: payload }))
 })
 
 router.delete('/message', authToken, async (req, res) => {
@@ -26,20 +27,15 @@ router.delete('/message', authToken, async (req, res) => {
   if (!isDelete) {
     return res
       .status(400)
-      .json({
-        status: 'error',
-        code: 404,
-        data: null,
+      .json(response.error({
         message: errorMessage.MESSAGE_NOT_FOUND
-      })
+      }))
   }
 
   const payload = {
-    status: 'success',
-    data: { deletedCount: isDelete.deletedCount },
-    message: null
+    deletedCount: isDelete.deletedCount
   }
-  return res.json(payload)
+  return res.json(response.success({ data: payload }))
 })
 
 module.exports = router
