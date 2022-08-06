@@ -3,5 +3,6 @@
   "INVALID_PASSWORD": "Invalid password",
   "ACCOUNT_NOT_FOUND": "Account is not found",
   "UNKNOWN_ERROR": "Unknown error",
-  "LOGOUT_SUCCESS": "Logout success"
+  "LOGOUT_SUCCESS": "Logout success",
+  "MESSAGE_NOT_FOUND": "Message is not found"
 }
