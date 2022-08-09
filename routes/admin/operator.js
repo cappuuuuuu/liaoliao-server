@@ -2,6 +2,7 @@ const router = require('express').Router()
 const operatorModel = require('@models/operator')
 const authToken = require('@middleware/authToken')
 const errorMessage = require('@static/error_message')
+const response = require('@utils/response')
 
 router.get('/operator', authToken, async (req, res) => {
   const operator = await operatorModel.findOne({ _id: req._id })
@@ -9,7 +10,7 @@ router.get('/operator', authToken, async (req, res) => {
   if (!operator) {
     return res
       .status(400)
-      .json({ message: errorMessage.ACCOUNT_NOT_FOUND })
+      .json(response.error({ message: errorMessage.ACCOUNT_NOT_FOUND }))
   }
 
   const payload = {
@@ -18,7 +19,7 @@ router.get('/operator', authToken, async (req, res) => {
   }
 
   return res
-    .json(payload)
+    .json(response.success({ data: payload }))
 })
 
 module.exports = router
