@@ -21,8 +21,8 @@ router.get('/message', authToken, async (req, res) => {
 })
 
 router.delete('/message', authToken, async (req, res) => {
-  const { _id } = req.body
-  const isDelete = await MessageModel.deleteMany({ _id: { $in: _id } })
+  const { ids } = req.body
+  const isDelete = await MessageModel.deleteMany({ _id: { $in: ids } })
 
   if (!isDelete) {
     return res
