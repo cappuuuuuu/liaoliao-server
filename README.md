@@ -11,7 +11,7 @@ Server Side For
 | Admin logout            | POST   |          | /admin/logout   | `_id: String \| Requried`                                         |
 | Get operator infomation | GET    | Required | /admin/operator |                                                                   |
 | Get message history     | GET    | Required | /message        | `page: Required` <br> `count: Required`                           |
-| Delete message history  | DELETE | Required | /message        | `_id: Array \| Required`                                          |
+| Delete message history  | DELETE | Required | /message        | `ids: Array \| Required`                                          |
 
 ### API Response Format
 
