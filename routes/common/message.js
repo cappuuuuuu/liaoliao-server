@@ -4,19 +4,30 @@ const authToken = require('@middleware/authToken')
 const MessageModel = require('@models/message')
 const errorMessage = require('@static/error_message')
 const response = require('@utils/response')
+const { existFilterOption } = require('@utils/filter')
 
-router.get('/message', authToken, async (req, res) => {
-  let { page, count } = req.query
-  page = parseInt(page)
-  count = parseInt(count)
+router.post('/message', authToken, async (req, res) => {
+  const { page, count, startDate, endDate, ...rest } = req.body
+  const filterOption = existFilterOption(rest)
+  const sortOption = { time: 'desc' }
+  const timeRange = {
+    $gte: startDate || new Date(0).toISOString(),
+    $lte: endDate || new Date().toISOString()
+  }
+  filterOption.time = timeRange
 
-  const allMessage = await MessageModel.find()
+  const allMessage = await MessageModel
+    .find(filterOption)
+    .sort(sortOption)
+
   const sliceIndex = (page - 1) * count
   const singlePageMessage = allMessage.slice(sliceIndex, sliceIndex + count)
+
   const payload = {
     records: singlePageMessage,
     count: allMessage.length
   }
+
   return res.json(response.success({ data: payload }))
 })
 
