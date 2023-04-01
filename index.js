@@ -20,7 +20,7 @@ app.set('views', path.join(__dirname, 'views'))
 
 // CORS
 const corsOptions = {
-  origin: process.env.CORS_ORIGIN,
+  origin: process.env.CORS_ORIGIN.split(','),
   credentials: true
 }
 app.use(cors(corsOptions))
