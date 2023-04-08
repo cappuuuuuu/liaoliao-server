@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const authToken = require('@middleware/authToken')
 const MessageModel = require('@models/message')
-const errorMessage = require('@static/error_message')
+const message = require('@static/messages')
 const response = require('@utils/response')
 
 router.get('/message', authToken, async (req, res) => {
@@ -28,14 +28,14 @@ router.delete('/message', authToken, async (req, res) => {
     return res
       .status(400)
       .json(response.error({
-        message: errorMessage.MESSAGE_NOT_FOUND
+        message: message.error.MESSAGE_NOT_FOUND
       }))
   }
 
-  const payload = {
-    deletedCount: isDelete.deletedCount
-  }
-  return res.json(response.success({ data: payload }))
+  return res.json(response.success({
+    data: {},
+    message: message.success.DELETE_SUCCESS
+  }))
 })
 
 module.exports = router
