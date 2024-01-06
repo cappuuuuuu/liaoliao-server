@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const errorMessage = require('@static/error_message')
+const message = require('@static/messages')
 const cookies = require('@static/cookies_key')
 const response = require('@utils/response')
 
@@ -9,7 +9,7 @@ module.exports = function (req, res, next) {
   if (!token) {
     res
       .status(401)
-      .json(response.error({ code: 401, message: errorMessage.ACCESS_DENIED }))
+      .json(response.error({ code: 401, message: message.error.ACCESS_DENIED }))
   }
 
   try {
